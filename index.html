@@ -1150,8 +1150,7 @@
       });
       rows.push([]);rows.push(['--- PAYMENT HISTORY ---']);rows.push(['Member','Amount','Plan','Type','Date']);
       payments.forEach(p=>rows.push([p.memberName,'Rs.'+p.amount,PLAN_LABELS[p.plan]||p.plan,p.cardio||'',fmtDate(p.date)]));
-      const csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('
-');
+      const csv=rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
       const blob=new Blob([csv],{type:'text/csv'});
       const url=URL.createObjectURL(blob);
       const a=document.createElement('a');a.href=url;a.download=`Pragyaa_Fitness_Backup_${today()}.csv`;a.click();URL.revokeObjectURL(url);
@@ -1163,9 +1162,7 @@
       if(dayOfMonth!==1)return;
       const lastBackup=localStorage.getItem('pf_last_backup')||'';const thisMonth=todayDate.slice(0,7);
       if(lastBackup===thisMonth||!members.length)return;
-      setTimeout(()=>{if(confirm('Monthly Backup — 1st of the month!
-
-Download member data CSV now?')){downloadCSV();localStorage.setItem('pf_last_backup',thisMonth);}},2500);
+      setTimeout(()=>{if(confirm('Monthly Backup — 1st of the month!\n\nDownload member data CSV now?')){downloadCSV();localStorage.setItem('pf_last_backup',thisMonth);}},2500);
     }
 
     function renderDashboard(){
