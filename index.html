@@ -594,6 +594,21 @@
         <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Expiring
         <span id="expiry-tab-badge" class="tab-badge" style="display:none">0</span>
       </button>
+      <button class="tab-item" onclick="openMobileMore()">
+        <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg>More
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-more-sheet" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.85)" onclick="closeMobileMore()">
+    <div style="position:absolute;bottom:0;left:0;right:0;background:var(--dark);border-top:1px solid var(--border);border-radius:20px 20px 0 0;padding:20px 16px 40px" onclick="event.stopPropagation()">
+      <div style="width:40px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 20px"></div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button onclick="closeMobileMore();downloadCSV()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--card);border:1px solid #1db954;border-radius:8px;color:#1db954;font-family:var(--font-body);font-size:14px;cursor:pointer;text-align:left;width:100%">&#8595; Backup CSV</button>
+        <button onclick="closeMobileMore();openModal('change-pass-modal')" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--card);border:1px solid #3b82f6;border-radius:8px;color:#3b82f6;font-family:var(--font-body);font-size:14px;cursor:pointer;text-align:left;width:100%">&#128273; Change Password</button>
+        <button onclick="closeMobileMore();backToSite()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--card);border:1px solid var(--border2);border-radius:8px;color:var(--muted);font-family:var(--font-body);font-size:14px;cursor:pointer;text-align:left;width:100%">&#8592; Back to Website</button>
+        <button onclick="closeMobileMore();doLogout()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--card);border:1px solid var(--red);border-radius:8px;color:var(--red);font-family:var(--font-body);font-size:14px;cursor:pointer;text-align:left;width:100%">Log Out</button>
+      </div>
     </div>
   </div>
 
@@ -706,6 +721,8 @@
     async function savePaymentToDB(p){await sb.from('payments').insert({id:p.id,member_id:p.memberId,member_name:p.memberName,amount:p.amount,plan:p.plan,cardio:p.cardio,date:p.date});}
     async function saveOwnerPassToDB(pass){await sb.from('settings').upsert({key:'owner_pass',value:pass});}
 
+    function openMobileMore(){document.getElementById('mobile-more-sheet').style.display='block';document.body.style.overflow='hidden';}
+    function closeMobileMore(){document.getElementById('mobile-more-sheet').style.display='none';document.body.style.overflow='';}
     function openMobileMenu(){document.getElementById('mobile-menu').classList.add('open');document.body.style.overflow='hidden';}
     function closeMobileMenu(){document.getElementById('mobile-menu').classList.remove('open');document.body.style.overflow='';}
     function openLoginScreen(){document.getElementById('login-screen').classList.add('open');}
