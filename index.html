@@ -1147,7 +1147,7 @@
       members.forEach(m=>{
         const dl=daysLeft(m.end);
         const status=!m.active?'Inactive':dl<0?'Expired':dl<=5?'Expiring Soon':'Active';
-        rows.push([m.name,m.phone,PLAN_LABELS[m.plan]||m.plan,m.cardio||'',m.gender||'',m.address||'',fmtDate(m.start),fmtDate(m.end),status,fmtDate(m.joined),m.notes||'']);
+        rows.push([m.name, '\t'+m.phone,PLAN_LABELS[m.plan]||m.plan,m.cardio||'',m.gender||'',m.address||'',fmtDate(m.start),fmtDate(m.end),status,fmtDate(m.joined),m.notes||'']);
       });
       rows.push([]);rows.push(['--- PAYMENT HISTORY ---']);rows.push(['Member','Amount','Plan','Type','Date']);
       payments.forEach(p=>rows.push([p.memberName,'Rs.'+p.amount,PLAN_LABELS[p.plan]||p.plan,p.cardio||'',fmtDate(p.date)]));
