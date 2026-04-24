@@ -71,7 +71,7 @@
     .equip-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 20px 16px; background: linear-gradient(to top, rgba(0,0,0,.85), transparent); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); }
     .membership { background: var(--dark); }
     .membership-inner { max-width: 1200px; margin: 0 auto; }
-    .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
+    .plans-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 60px; }
     .plan-card { background: var(--card); border: 1px solid var(--border); padding: 40px 32px; transition: border-color .2s; position: relative; overflow: hidden; }
     .plan-card:hover { border-color: var(--gold); }
     .plan-card.featured { border-color: var(--gold); background: #161200; }
@@ -381,29 +381,38 @@
         <p class="section-body">Flexible membership options for every goal and schedule. All plans include full equipment access and trainer guidance.</p>
         <div class="plans-grid">
           <div class="plan-card">
-            <div class="plan-name">MONTHLY</div>
-            <div class="plan-price"><span>₹</span>1,100</div>
-            <div class="plan-duration">per month</div>
+            <div class="plan-name">1 MONTH</div>
+            <div class="plan-price"><span>₹</span>1,000</div>
+            <div class="plan-duration">per month — Non-Cardio</div>
             <ul class="plan-features">
               <li>Full equipment access</li><li>Trainer guidance</li><li>Locker facility</li><li>Flexible timings</li>
             </ul>
             <a href="https://wa.me/917040909085" class="plan-btn" target="_blank">Get Started</a>
           </div>
           <div class="plan-card featured">
-            <div class="plan-name">3 MONTHS</div>
-            <div class="plan-price"><span>₹</span>2,100</div>
-            <div class="plan-duration">per 3 months — save ₹1,200</div>
+            <div class="plan-name">1 MONTH</div>
+            <div class="plan-price"><span>₹</span>1,500</div>
+            <div class="plan-duration">per month — Cardio + Gym</div>
             <ul class="plan-features">
-              <li>Full equipment access</li><li>Personal trainer session</li><li>Diet guidance</li><li>Locker facility</li><li>Priority timings</li>
+              <li>Full equipment access</li><li>Cardio machines included</li><li>Trainer guidance</li><li>Locker facility</li><li>Flexible timings</li>
             </ul>
             <a href="https://wa.me/917040909085" class="plan-btn" target="_blank">Get Started</a>
           </div>
           <div class="plan-card">
-            <div class="plan-name">6 MONTHS</div>
-            <div class="plan-price"><span>₹</span>4,200</div>
-            <div class="plan-duration">per 6 months — best value</div>
+            <div class="plan-name">3 MONTHS</div>
+            <div class="plan-price"><span>₹</span>2,400</div>
+            <div class="plan-duration">per 3 months — Non-Cardio</div>
             <ul class="plan-features">
-              <li>Full equipment access</li><li>Unlimited trainer sessions</li><li>Personalised diet plan</li><li>Locker facility</li><li>Guest passes included</li>
+              <li>Full equipment access</li><li>Trainer guidance</li><li>Diet guidance</li><li>Locker facility</li><li>Priority timings</li>
+            </ul>
+            <a href="https://wa.me/917040909085" class="plan-btn" target="_blank">Get Started</a>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">3 MONTHS</div>
+            <div class="plan-price"><span>₹</span>3,600</div>
+            <div class="plan-duration">per 3 months — Cardio + Gym</div>
+            <ul class="plan-features">
+              <li>Full equipment access</li><li>Cardio machines included</li><li>Trainer guidance</li><li>Diet guidance</li><li>Locker facility</li>
             </ul>
             <a href="https://wa.me/917040909085" class="plan-btn" target="_blank">Get Started</a>
           </div>
@@ -625,9 +634,10 @@
         <div class="form-row">
           <div class="form-group"><label class="form-label">Plan *</label>
             <select class="form-select" id="f-plan">
-              <option value="1-month">1 Month — ₹1,100</option>
-              <option value="3-month">3 Months — ₹2,100</option>
-              <option value="6-month">6 Months — ₹4,200</option>
+              <option value="1-month-noncardio">1 Month — Non-Cardio ₹1,000</option>
+              <option value="1-month-cardio">1 Month — Cardio+Gym ₹1,500</option>
+              <option value="3-month-noncardio">3 Months — Non-Cardio ₹2,400</option>
+              <option value="3-month-cardio">3 Months — Cardio+Gym ₹3,600</option>
             </select>
           </div>
           <div class="form-group"><label class="form-label">Type *</label>
@@ -639,7 +649,7 @@
           <div class="form-group"><label class="form-label">End Date (auto)</label><input class="form-input" type="date" id="f-end" readonly style="opacity:.6"/></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Amount Paid (₹)</label><input class="form-input" id="f-amount" type="number" placeholder="e.g. 1100"/></div>
+          <div class="form-group"><label class="form-label">Amount Paid (₹)</label><input class="form-input" id="f-amount" type="number" placeholder="e.g. 1000"/></div>
           <div class="form-group"><label class="form-label">Gender</label>
             <select class="form-select" id="f-gender"><option>Male</option><option>Female</option><option>Other</option></select>
           </div>
@@ -664,9 +674,14 @@
       <div class="modal-body">
         <input type="hidden" id="extend-id"/>
         <div class="form-group" style="margin-bottom:14px"><label class="form-label">New Plan</label>
-          <select class="form-select" id="ext-plan"><option value="1-month">1 Month — ₹1,100</option><option value="3-month">3 Months — ₹2,100</option><option value="6-month">6 Months — ₹4,200</option></select>
+          <select class="form-select" id="ext-plan">
+            <option value="1-month-noncardio">1 Month — Non-Cardio ₹1,000</option>
+            <option value="1-month-cardio">1 Month — Cardio+Gym ₹1,500</option>
+            <option value="3-month-noncardio">3 Months — Non-Cardio ₹2,400</option>
+            <option value="3-month-cardio">3 Months — Cardio+Gym ₹3,600</option>
+          </select>
         </div>
-        <div class="form-group" style="margin-bottom:14px"><label class="form-label">Amount Paid (₹)</label><input class="form-input" id="ext-amount" type="number" placeholder="e.g. 2100"/></div>
+        <div class="form-group" style="margin-bottom:14px"><label class="form-label">Amount Paid (₹)</label><input class="form-input" id="ext-amount" type="number" placeholder="e.g. 1000"/></div>
         <div class="form-group"><label class="form-label">New Start Date</label><input class="form-input" type="date" id="ext-start"/></div>
       </div>
       <div class="modal-foot"><button class="btn-cancel" onclick="closeModal('extend-modal')">Cancel</button><button class="btn-save" onclick="extendPlan()">Extend</button></div>
@@ -693,9 +708,9 @@
     const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvbmp0cmZ5YWhxeWVlamhvYmtxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyNzA1NTQsImV4cCI6MjA5MTg0NjU1NH0.txuvStwIj6trBMgoKv0JMzROZi8qEdlOEKPZWRm7-1Q';
     const sb=supabase.createClient(SB_URL,SB_KEY);
     let OWNER_USER='',ownerPass='',currentRole='';
-    const PLAN_DAYS={'1-month':30,'3-month':90,'6-month':180};
-    const PLAN_LABELS={'1-month':'1 Month','3-month':'3 Months','6-month':'6 Months'};
-    const PLAN_PRICES={'1-month':1100,'3-month':2100,'6-month':4200};
+    const PLAN_DAYS={'1-month-noncardio':30,'1-month-cardio':30,'3-month-noncardio':90,'3-month-cardio':90};
+    const PLAN_LABELS={'1-month-noncardio':'1 Month (Non-Cardio)','1-month-cardio':'1 Month (Cardio+Gym)','3-month-noncardio':'3 Months (Non-Cardio)','3-month-cardio':'3 Months (Cardio+Gym)','1-month':'1 Month','3-month':'3 Months','6-month':'6 Months'};
+    const PLAN_PRICES={'1-month-noncardio':1000,'1-month-cardio':1500,'3-month-noncardio':2400,'3-month-cardio':3600};
     let members=[],payments=[],currentFilter='all';
 
     function s(str){return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;');}
@@ -758,9 +773,9 @@
     document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
     function toast(msg,type='success'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+type+' show';setTimeout(()=>t.classList.remove('show'),2800);}
 
-    function openAddMember(){document.getElementById('edit-id').value='';document.getElementById('modal-title').textContent='Add Member';['f-name','f-phone','f-address','f-notes'].forEach(id=>document.getElementById(id).value='');document.getElementById('f-plan').value='1-month';document.getElementById('f-cardio').value='non-cardio';document.getElementById('f-gender').value='Male';document.getElementById('f-amount').value='1100';const t=today();document.getElementById('f-start').value=t;document.getElementById('f-end').value=addDays(t,30);openModal('member-modal');}
-    document.getElementById('f-plan').addEventListener('change',function(){const st=document.getElementById('f-start').value;if(st)document.getElementById('f-end').value=addDays(st,PLAN_DAYS[this.value]);document.getElementById('f-amount').value=PLAN_PRICES[this.value];});
-    document.getElementById('f-start').addEventListener('change',function(){document.getElementById('f-end').value=addDays(this.value,PLAN_DAYS[document.getElementById('f-plan').value]);});
+    function openAddMember(){document.getElementById('edit-id').value='';document.getElementById('modal-title').textContent='Add Member';['f-name','f-phone','f-address','f-notes'].forEach(id=>document.getElementById(id).value='');document.getElementById('f-plan').value='1-month-noncardio';document.getElementById('f-cardio').value='non-cardio';document.getElementById('f-gender').value='Male';document.getElementById('f-amount').value='1000';const t=today();document.getElementById('f-start').value=t;document.getElementById('f-end').value=addDays(t,30);openModal('member-modal');}
+    document.getElementById('f-plan').addEventListener('change',function(){const st=document.getElementById('f-start').value;if(st)document.getElementById('f-end').value=addDays(st,PLAN_DAYS[this.value]||30);document.getElementById('f-amount').value=PLAN_PRICES[this.value]||'';if(this.value.includes('cardio')&&!this.value.includes('non'))document.getElementById('f-cardio').value='cardio';else document.getElementById('f-cardio').value='non-cardio';});
+    document.getElementById('f-start').addEventListener('change',function(){document.getElementById('f-end').value=addDays(this.value,PLAN_DAYS[document.getElementById('f-plan').value]||30);});
 
     async function saveMember(){
       const name=document.getElementById('f-name').value.trim(),phone=document.getElementById('f-phone').value.trim(),plan=document.getElementById('f-plan').value,cardio=document.getElementById('f-cardio').value,start=document.getElementById('f-start').value,end=document.getElementById('f-end').value,amount=parseFloat(document.getElementById('f-amount').value)||0,gender=document.getElementById('f-gender').value,address=document.getElementById('f-address').value.trim(),notes=document.getElementById('f-notes').value.trim();
@@ -771,19 +786,19 @@
       closeModal('member-modal');renderAll();
     }
 
-    function editMember(id){const m=members.find(x=>x.id===id);if(!m)return;document.getElementById('edit-id').value=id;document.getElementById('modal-title').textContent='Edit Member';document.getElementById('f-name').value=m.name;document.getElementById('f-phone').value=m.phone;document.getElementById('f-plan').value=m.plan||'1-month';document.getElementById('f-cardio').value=m.cardio||'non-cardio';document.getElementById('f-start').value=m.start;document.getElementById('f-end').value=m.end;document.getElementById('f-gender').value=m.gender||'Male';document.getElementById('f-address').value=m.address||'';document.getElementById('f-notes').value=m.notes||'';document.getElementById('f-amount').value='';openModal('member-modal');}
+    function editMember(id){const m=members.find(x=>x.id===id);if(!m)return;document.getElementById('edit-id').value=id;document.getElementById('modal-title').textContent='Edit Member';document.getElementById('f-name').value=m.name;document.getElementById('f-phone').value=m.phone;document.getElementById('f-plan').value=m.plan||'1-month-noncardio';document.getElementById('f-cardio').value=m.cardio||'non-cardio';document.getElementById('f-start').value=m.start;document.getElementById('f-end').value=m.end;document.getElementById('f-gender').value=m.gender||'Male';document.getElementById('f-address').value=m.address||'';document.getElementById('f-notes').value=m.notes||'';document.getElementById('f-amount').value='';openModal('member-modal');}
 
     function viewMember(id){const m=members.find(x=>x.id===id);if(!m)return;document.getElementById('view-name').textContent=s(m.name);const dl=daysLeft(m.end),status=!m.active?'Inactive':dl<0?'Expired':dl<=5?'Expiring Soon':'Active',sc=!m.active||dl<0?'var(--red)':dl<=5?'var(--amber)':'var(--green)';const mp=payments.filter(p=>p.memberId===id);const ph=mp.length?[...mp].reverse().map(p=>`<div class="pay-item"><div><div style="font-size:13px;font-weight:500">₹${p.amount.toLocaleString('en-IN')}</div><div class="pay-date">${fmtDate(p.date)}</div></div><div style="text-align:right"><span class="pay-plan">${PLAN_LABELS[p.plan]||p.plan}</span></div></div>`).join(''):'<div style="color:var(--muted);font-size:13px;padding:8px 0">No payments yet.</div>';const waMsg=`Hi ${m.name}, your Pragyaa Fitness membership expires on ${fmtDate(m.end)}. Please renew soon! 💪 Contact: 7040909085`;document.getElementById('view-body').innerHTML=`<div class="member-detail-grid"><div><div class="detail-label">Phone</div><div class="detail-value"><a href="tel:${s(m.phone)}" style="color:var(--gold);text-decoration:none">${s(m.phone)}</a></div></div><div><div class="detail-label">Status</div><div class="detail-value" style="color:${sc}">${status}</div></div><div><div class="detail-label">Plan</div><div class="detail-value">${PLAN_LABELS[m.plan]||m.plan}</div></div><div><div class="detail-label">Type</div><div class="detail-value">${s(m.cardio)||'—'}</div></div><div><div class="detail-label">Start</div><div class="detail-value">${fmtDate(m.start)}</div></div><div><div class="detail-label">Expires</div><div class="detail-value">${fmtDate(m.end)}</div></div><div><div class="detail-label">Gender</div><div class="detail-value">${s(m.gender)||'—'}</div></div><div><div class="detail-label">Joined</div><div class="detail-value">${fmtDate(m.joined)}</div></div></div>${m.address?`<div style="margin-bottom:14px"><div class="detail-label">Address</div><div class="detail-value">${s(m.address)}</div></div>`:''}${m.notes?`<div style="margin-bottom:14px"><div class="detail-label">Notes</div><div class="detail-value">${s(m.notes)}</div></div>`:''}<div style="display:flex;gap:10px;margin:16px 0;flex-wrap:wrap"><a href="https://wa.me/91${m.phone}?text=${encodeURIComponent(waMsg)}" target="_blank" class="add-btn" style="text-decoration:none;font-size:12px;padding:9px 16px">WhatsApp Reminder</a><button class="act-btn success" style="padding:9px 16px" onclick="closeModal('view-modal');openExtend('${m.id}')">Extend Plan</button><button class="act-btn ${m.active?'danger':'success'}" style="padding:9px 16px" onclick="toggleActive('${m.id}');closeModal('view-modal')">${m.active?'Mark Inactive':'Mark Active'}</button></div><div style="margin-top:8px"><div style="font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Payment History</div>${ph}</div>`;openModal('view-modal');}
 
     async function toggleActive(id){const m=members.find(x=>x.id===id);if(!m)return;m.active=!m.active;await saveMemberToDB(m,false);renderAll();toast(m.active?'Activated':'Deactivated');}
     async function deleteMember(id){if(!confirm('Delete this member? Data stays safe in database.'))return;const m=members.find(x=>x.id===id);if(!m)return;m.deleted=true;await saveMemberToDB(m,false);members=members.filter(x=>x.id!==id);renderAll();toast('Member removed ✓');}
 
-    function openExtend(id){document.getElementById('extend-id').value=id;document.getElementById('ext-plan').value='1-month';document.getElementById('ext-amount').value='1100';document.getElementById('ext-start').value=today();openModal('extend-modal');}
-    document.getElementById('ext-plan').addEventListener('change',function(){document.getElementById('ext-amount').value=PLAN_PRICES[this.value];});
-    async function extendPlan(){const id=document.getElementById('extend-id').value,plan=document.getElementById('ext-plan').value,amount=parseFloat(document.getElementById('ext-amount').value)||0,start=document.getElementById('ext-start').value,end=addDays(start,PLAN_DAYS[plan]),m=members.find(x=>x.id===id);if(!m)return;m.plan=plan;m.start=start;m.end=end;m.active=true;await saveMemberToDB(m,false);if(amount>0){const pay={id:'p_'+Date.now(),memberId:id,memberName:m.name,amount,plan,cardio:m.cardio,date:today()};payments.push(pay);await savePaymentToDB(pay);}closeModal('extend-modal');renderAll();toast('Plan extended');}
+    function openExtend(id){document.getElementById('extend-id').value=id;document.getElementById('ext-plan').value='1-month-noncardio';document.getElementById('ext-amount').value='1000';document.getElementById('ext-start').value=today();openModal('extend-modal');}
+    document.getElementById('ext-plan').addEventListener('change',function(){document.getElementById('ext-amount').value=PLAN_PRICES[this.value]||'';});
+    async function extendPlan(){const id=document.getElementById('extend-id').value,plan=document.getElementById('ext-plan').value,amount=parseFloat(document.getElementById('ext-amount').value)||0,start=document.getElementById('ext-start').value,end=addDays(start,PLAN_DAYS[plan]||30),m=members.find(x=>x.id===id);if(!m)return;m.plan=plan;m.start=start;m.end=end;m.active=true;await saveMemberToDB(m,false);if(amount>0){const pay={id:'p_'+Date.now(),memberId:id,memberName:m.name,amount,plan,cardio:m.cardio,date:today()};payments.push(pay);await savePaymentToDB(pay);}closeModal('extend-modal');renderAll();toast('Plan extended');}
 
     function setFilter(f,btn){currentFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderTable();}
-    function getFiltered(){const q=(document.getElementById('search-input')?.value||'').toLowerCase();return members.filter(m=>{const mq=!q||m.name.toLowerCase().includes(q)||m.phone.includes(q),dl=daysLeft(m.end),isA=m.active&&dl>=0;if(currentFilter==='active')return mq&&isA;if(currentFilter==='inactive')return mq&&(!m.active||dl<0);if(currentFilter==='cardio')return mq&&m.cardio==='cardio';if(currentFilter==='non-cardio')return mq&&m.cardio==='non-cardio';return mq;});}
+    function getFiltered(){const q=(document.getElementById('search-input')?.value||'').toLowerCase();return members.filter(m=>{const mq=!q||m.name.toLowerCase().includes(q)||m.phone.includes(q),dl=daysLeft(m.end),isA=m.active&&dl>=0;if(currentFilter==='active')return mq&&isA;if(currentFilter==='inactive')return mq&&(!m.active||dl<0);if(currentFilter==='cardio')return mq&&m.cardio==='cardio';if(currentFilter==='non-cardio')return mq&&m.cardio==='non-cardio';return mq;}).sort((a,b)=>new Date(b.joined||0)-new Date(a.joined||0));}
 
     function renderTable(){const tbody=document.getElementById('members-tbody'),list=getFiltered();if(!list.length){tbody.innerHTML=`<tr><td colspan="6"><div class="empty-state"><p>No members found</p></div></td></tr>`;return;}tbody.innerHTML=list.map(m=>{const dl=daysLeft(m.end),active=m.active&&dl>=0,exp=active&&dl<=5,sb2=active?(exp?`<span class="badge badge-amber"><span class="badge-dot"></span>${dl}d left</span>`:`<span class="badge badge-green"><span class="badge-dot"></span>Active</span>`):`<span class="badge badge-red"><span class="badge-dot"></span>${dl<0?'Expired':'Inactive'}</span>`,cb=m.cardio==='cardio'?`<span class="badge badge-blue">Cardio</span>`:`<span class="badge" style="background:#1a1a1a;color:var(--muted)">Non-Cardio</span>`;return`<tr><td><div style="font-weight:500">${s(m.name)}</div><div style="font-size:11px;color:var(--muted)">${s(m.phone)}</div></td><td>${PLAN_LABELS[m.plan]||m.plan}</td><td>${cb}</td><td style="font-size:12px;color:${dl<0?'var(--red)':dl<=5?'var(--amber)':'var(--muted)'}">${fmtDate(m.end)}</td><td>${sb2}</td><td><div class="action-btns"><button class="act-btn" onclick="viewMember('${m.id}')">View</button><button class="act-btn" onclick="editMember('${m.id}')">Edit</button><button class="act-btn success" onclick="openExtend('${m.id}')">Extend</button><button class="act-btn ${active?'danger':'success'}" onclick="toggleActive('${m.id}')">${active?'Deactivate':'Activate'}</button><button class="act-btn danger" onclick="deleteMember('${m.id}')">Del</button></div></td></tr>`;}).join('');}
 
@@ -808,7 +823,6 @@
 
     function renderAll(){renderDashboard();checkAutoBackup();const cur=document.querySelector('#admin-app [id^="page-"]:not([style*="none"])');if(cur){const n=cur.id.replace('page-','');if(n==='members')renderTable();if(n==='payments')renderPayments();if(n==='expiring')renderExpiryFull();}}
 
-    // ── CHANGE PASSWORD ──
     async function changeOwnerPass(){
       const cur=document.getElementById('cp-cur').value.trim();
       const np=document.getElementById('cp-new').value.trim();
@@ -827,7 +841,6 @@
       toast('Password updated ✓');
     }
 
-    // ── RESTORE SESSION ──
     (async()=>{
       const role=sessionStorage.getItem('pf_role')||'',savedUser=sessionStorage.getItem('pf_user')||'';
       if(!role||!savedUser)return;
